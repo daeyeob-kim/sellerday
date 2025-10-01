@@ -22,7 +22,7 @@ set :deploy_to, "/var/www/sellerday" # 서버에 배포될 경로
 
 # Default value for :linked_files is []
 # config/database.yml, config/master.key, .env 파일은 서버에 직접 생성하거나 업로드할 것이므로 여기에 추가합니다.
-append :linked_files, "config/database.yml", "config/master.key", ".env"
+append :linked_files, "config/database.yml", "config/master.key", ".env", "config/puma.rb"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "vendor", "storage"
