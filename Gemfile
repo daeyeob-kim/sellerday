@@ -65,6 +65,13 @@ group :development do
   # gem "spring"
 
   gem "error_highlight", ">= 0.4.0", platforms: [:ruby]
+
+  # Capistrano for deployment
+  gem 'capistrano', '~> 3.18'
+  gem 'capistrano-rails', '~> 1.7'
+  gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-bundler', '~> 2.1'
+  gem 'capistrano-puma', '~> 0.2'
 end
 
 group :test do
