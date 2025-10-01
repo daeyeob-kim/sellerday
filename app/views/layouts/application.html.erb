@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sellerday</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class="dashboard-layout">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <h3>SellerDay</h3>
+        </div>
+        <ul class="sidebar-menu">
+          <li class="active"><a href="#"><i data-feather="home"></i> Dashboard</a></li>
+          <li><a href="#"><i data-feather="box"></i> Products</a></li>
+          <li><a href="#"><i data-feather="settings"></i> Settings</a></li>
+        </ul>
+
+        <div class="sidebar-auth-section">
+          <% if poizon_connected? %>
+            <div class="auth-status connected">
+              <i data-feather="check-circle" style="color: #28a745;"></i>
+              <span>Poizon Connected</span>
+            </div>
+            <%= button_to "Disconnect Poizon", disconnect_poizon_path, method: :delete, class: "btn btn-danger btn-block" %>
+          <% else %>
+            <%= link_to auth_poizon_path, class: "btn btn-primary btn-block" do %>
+              <i data-feather="link"></i> Connect Poizon
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="main-content">
+        <% if flash[:notice] %>
+          <div class="alert alert-success"><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:alert] %>
+          <div class="alert alert-danger"><%= flash[:alert] %></div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
+    <script>
+      feather.replace()
+    </script>
+  </body>
+</html>
