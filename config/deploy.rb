@@ -2,7 +2,7 @@
 lock "~> 3.19.2"
 
 set :application, "sellerday" # 애플리케이션 이름
-set :repo_url, "git@github.com:daeyeob-kim/sellerday.git" # GitHub 저장소 URL
+set :repo_url, "https://github.com/daeyeob-kim/sellerday.git" # GitHub 저장소 URL (HTTPS 방식으로 변경)
 
 # Default branch is :master
 set :branch, :main # main 브랜치 사용
